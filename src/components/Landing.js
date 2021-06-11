@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
 import {mediaQueries} from "../shared/config"
+import BruinLogo from '../images/bruin_logo.png'
+import Lightbulb from '../images/lightbulb.png'
 
 const Section = styled.section`
   height: 100vh;
@@ -167,8 +169,8 @@ const Landing = () => {
             animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
           /> */}
           <Image
-            src="https://i.pinimg.com/originals/ff/04/28/ff0428f28d314c1aab327500252e3b62.png"
-            alt='planet'
+            src={BruinLogo}
+            alt='bruin logo'
             whileTap={{ scale: 0.6 }}
             drag={true}
             dragConstraints={{ left: 50, right: 0, top: 0, bottom: 50 }}
@@ -176,8 +178,8 @@ const Landing = () => {
             animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
           />
           <Image
-            src="https://cdn.freebiesupply.com/logos/large/2x/ucla-bruins-1-logo-png-transparent.png"
-            alt='planet'
+            src={Lightbulb}
+            alt='lightbulb'
             whileTap={{ scale: 0.8 }}
             drag={true}
             dragConstraints={{ left: 10, right: 0, top: 0, bottom: 50 }}
