@@ -9,23 +9,30 @@ const Section = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #131313;
+  background: #FFF8E4;
+  padding:0 4rem;
+  padding-bottom: 3rem;
+  ${mediaQueries.mobile}{
+    padding: 0;
+  }
 `;
 
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 100vh;
-  padding: 0 calc((100vw - 1300px) / 2);
-  overflow-y: hidden;
+  padding: 3rem calc((100vw - 1300px) / 2);
+  /* overflow-y: hidden; */
   @media screen and (max-width: 768px) {
     grid-template-columns: 0.5fr 1fr;
+    /* display: block;
+    padding: 0 calc((100vw - 1300px) / 2); */
   }
 `;
 
 const ColumnLeft = styled.div`
   display: flex;
-  color: #fff;
+  color: black;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -35,24 +42,28 @@ const ColumnLeft = styled.div`
   h1 {
     margin-bottom: 0.5rem;
     font-size: 2rem;
+    font-family: 'Mate SC', serif;
   }
 
   p {
     margin: 2rem 0;
     font-size: 4rem;
     line-height: 1.1;
+    z-index: 999;
+    font-family: 'Mate SC', serif;
   }
 `;
 
 const Button = styled(motion.button)`
   padding: 1rem 3rem;
   font-size: 1rem;
-  border: 2px solid #fff;
+  border: 2px solid black;
   border-radius: 4px;
   outline: none;
   cursor: pointer;
   background: transparent;
-  color: #fff;
+  color: black;
+  font-family: 'Gloria Hallelujah', cursive;
 `;
 
 const Image = styled(motion.img)`
@@ -62,20 +73,28 @@ const Image = styled(motion.img)`
   max-width: 250px;
   max-height: 250px;
   overflow-y: hidden;
+  ${mediaQueries.mobile}{
+    width:70px;
+    height: 70px;
+  }
 `;
 
 const ColumnRight = styled.div`
   display: flex;
+  width:100%;
   justify-content: center;
   align-items: center;
   padding: 2rem;
   position: relative;
+  /* overflow-y:hidden; */
 
   ${Image}:nth-child(1) {
-    top: 10px;
+    top: 100px;
     left: 10px;
     @media screen and (max-width: 768px) {
     left: 0px;
+    top: -10px;
+
   }
   }
 
@@ -98,7 +117,7 @@ const ColumnRight = styled.div`
   }
 `;
 
-const Hero = () => {
+const Landing = () => {
   const fadeLeft = {
     hidden: { opacity: 0, x: -100 },
     visible: { opacity: 1, x: 0 }
@@ -111,7 +130,7 @@ const Hero = () => {
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 2 }}
           >
             LA Program@UCLA
           </motion.h1>
@@ -138,17 +157,17 @@ const Hero = () => {
           </Button>
         </ColumnLeft>
         <ColumnRight>
-          <Image
-            src="https://www.my-moments.com/wp-content/uploads/2017/10/250x250-circle.png"
-            alt='planet'
+          {/* <Image
+            src="https://cdn.freebiesupply.com/images/large/2x/ucla-logo-png-transparent.png"
+            alt='UCLA'
             whileTap={{ scale: 0.9 }}
             drag={true}
             dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
-          />
+          /> */}
           <Image
-            src="https://www.my-moments.com/wp-content/uploads/2017/10/250x250-circle.png"
+            src="https://i.pinimg.com/originals/ff/04/28/ff0428f28d314c1aab327500252e3b62.png"
             alt='planet'
             whileTap={{ scale: 0.6 }}
             drag={true}
@@ -157,16 +176,16 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
           />
           <Image
-            src="https://www.my-moments.com/wp-content/uploads/2017/10/250x250-circle.png"
+            src="https://cdn.freebiesupply.com/logos/large/2x/ucla-bruins-1-logo-png-transparent.png"
             alt='planet'
             whileTap={{ scale: 0.8 }}
             drag={true}
-            dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
+            dragConstraints={{ left: 10, right: 0, top: 0, bottom: 50 }}
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
           />
           <Image
-            src="https://www.my-moments.com/wp-content/uploads/2017/10/250x250-circle.png"
+            src="https://tofasakademi.com/wp-content/uploads/2019/06/growth-mindset3.png"
             alt='planet'
             whileTap={{ scale: 0.9 }}
             drag={true}
@@ -180,4 +199,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Landing;
