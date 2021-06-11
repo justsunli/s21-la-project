@@ -1,13 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Landing from './components/Landing'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1> Hello :))</h1>
-      </header>
-    </div>
+    <Landing/>
   );
 }
 
