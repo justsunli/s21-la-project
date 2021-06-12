@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import "./style.css";
+import {Link, Route, Switch} from 'react-router-dom'
 import {mediaQueries} from "../shared/config"
 
 const Container = styled.div` 
@@ -32,9 +33,18 @@ ${mediaQueries.mobile}{
 const Intro = styled.div`
 font-size: 20px;
 font-family: 'Prompt', sans-serif;
+display: ${props=>props.display};
 ${mediaQueries.mobile}{
     font-size: 10px;
   }
+`
+
+const ReadMore = styled.div`
+font-size: 20px;
+font-family: 'Prompt', sans-serif;
+font-style: italic;
+cursor: pointer;
+display: ${props=>props.display};
 `
 
 
@@ -116,19 +126,25 @@ function Item({ text, contentJ, contentS }) {
   ];
 
   export default function Experience() {
+    const [ opened, setOpened ] = useState(false);
+    function click(){
+     
+      setOpened(!opened);
+     
+  }
+
     return (
         <Container>
             <TextBox>
                 <Headline>Q&A</Headline>
-                <Intro> 
-                  Hi, Sunny and Jiayi! Both of you are new to the LA Program this quarter (Spring 2021), so we would like to hear about your thoughts on the program. Would you like to introduce yourselves first?
-                </Intro>
+                <ReadMore opened={opened} onClick={click} display={opened ? "none":"block"}> Details </ReadMore>
+                <Intro opened={opened} onClick={click} display={opened ? "block":"none"}> 
+                <section>
+                  Sunny Li and Jiayi Wu were both new to the LA Program this quarter (Spring 2021). We did a small interview here and continue scroll to read what they've said! Would you like to introduce yourselves first?
+                  </section>
                 <br/>
-                <Intro> 
                   Jiayi (J): Hi, this is Jiayi. I’m a 2nd-year Neuroscience major. I’m glad to be a Math 33A LA this quarter. It was a really fun experience! I’m looking forward to LAing for Physics 5CL in the summer.
-                </Intro>
-                <br />
-                <Intro>
+                <br/> <br/>
                   Sunny (S): Hello! My name is Sunny, I am a 2nd-year Computer Science major. I was also a LA for Math 33A this quarter and I love it a lot! I will also be a LA for CS32 this summer :D
                 </Intro>
             </TextBox>

@@ -4,6 +4,7 @@ import {motion} from 'framer-motion';
 import {mediaQueries} from "../shared/config"
 import BruinLogo from '../images/bruin_logo.png'
 import Lightbulb from '../images/lightbulb.png'
+import {Link} from 'react-scroll';
 
 const Section = styled.section`
   height: 100vh;
@@ -136,6 +137,7 @@ const Landing = () => {
           >
             LA Program@UCLA
           </motion.h1>
+        
           <motion.p
             variants={fadeLeft}
             initial='hidden'
@@ -155,7 +157,10 @@ const Landing = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 1.5 } }}
           >
-            Get Started
+            <Link to="intro" spy={true} smooth={true}>
+              Get Started
+            </Link>
+            
           </Button>
         </ColumnLeft>
         <ColumnRight>
