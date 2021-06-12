@@ -146,22 +146,22 @@ const Landing = () => {
           >
             Ready to explore?
           </motion.p>
-          <Button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{
-              scale: 0.95,
-              backgroundColor: '#67F6E7',
-              border: 'none',
-              color: '#000'
-            }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { duration: 1.5 } }}
-          >
-            <Link to="intro" spy={true} smooth={true}>
-              Get Started
-            </Link>
-            
-          </Button>
+
+          <Link to="intro" spy={true} smooth={true}>
+            <Button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{
+                scale: 0.95,
+                backgroundColor: '#67F6E7',
+                border: 'none',
+                color: '#000'
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 1.5 } }}
+            >
+                Get Started
+            </Button>
+          </Link>
         </ColumnLeft>
         <ColumnRight>
           {/* <Image
